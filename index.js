@@ -13,6 +13,9 @@ router
   .get("/messages", (context) => {
     context.response.body =messages;
   })
+  .get("/jse", (context) => {
+    context.response.body ="JSE";
+  })
   .post("/messages", async(context) => {
     const  message= await context.request.body().value;   
       message.push(message);
