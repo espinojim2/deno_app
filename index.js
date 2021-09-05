@@ -1,6 +1,9 @@
-addEventListener("fetch", (event) => {
-    const response = new Response("Hello World! Jeam", {
-      headers: { "content-type": "text/plain" },
-    });
-    event.respondWith(response);
-  });
+mport { Application } from "https://deno.land/x/oak/mod.ts";
+
+const app = new Application();
+
+app.use((ctx) => {
+  ctx.response.body = "Hello world!";
+});
+
+addEventListener("fetch", app.fetchEventHandler);
